@@ -20,7 +20,7 @@ const styles = StyleSheet.create ({
         paddingBottom:Responsive.font(2),
         fontSize:Responsive.font(13),
         borderBottomWidth:Responsive.font(1),
-        borderColor:theme.colors.primary,
+        borderColor:theme.colors.backGround,
         marginBottom:Responsive.font(16)
     }
 })
