@@ -1,18 +1,30 @@
-import { StyleSheet, View } from "react-native";
-import { Login } from "./src/screens/User/Login";
-import { Register } from "./src/screens/User/Register";
-import { Pedidos } from "./src/screens/User/Pedidos";
-import { Profile } from "./src/screens/User/Profile";
+
+import { ThemeProvider } from "styled-components";
+import { SafeAreaView, View, StatusBar, StyleSheet, Text } from "react-native";
+import theme from "./src/global/style/theme";
+
+import { Routes } from "./src/routes";
+import { AuthProvider } from "./src/context/auth";
+import { AppRoutes } from "./src/routes/app.routes";
+import { NavigationContainer } from "@react-navigation/native";
+
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Profile />
-    </View>
+    <SafeAreaView style={styles.safeArea}>
+      <StatusBar barStyle="dark-content" />
+      <ThemeProvider theme={theme}>
+        <NavigationContainer>
+          <AuthProvider>
+            <AppRoutes />
+          </AuthProvider>
+        </NavigationContainer>
+      </ThemeProvider>
+    </SafeAreaView>
   );
 }
-
 const styles = StyleSheet.create({
-  container: {
+  safeArea: {
     flex: 1,
+    overflow: "hidden",
   },
 });
